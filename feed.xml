@@ -6,8 +6,8 @@
     <atom:link href="https://shiro-jbake.staged.apache.org/feed.xml" rel="self" type="application/rss+xml" />
     <description>JBake Bootstrap Template</description>
     <language>en-gb</language>
-    <pubDate>Fri, 22 Oct 2021 13:04:47 +0200</pubDate>
-    <lastBuildDate>Fri, 22 Oct 2021 13:04:47 +0200</lastBuildDate>
+    <pubDate>Fri, 22 Oct 2021 13:27:30 +0200</pubDate>
+    <lastBuildDate>Fri, 22 Oct 2021 13:27:30 +0200</lastBuildDate>
 
     <item>
       <title>Apache Shiro v1.8.0 released</title>
@@ -383,7 +383,7 @@ This is a feature release for 1.x.&lt;/p&gt;
 &lt;div class=&quot;ulist&quot;&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;Updates the default Cipher mode to GCM in AesCipherService (&lt;a href=&quot;security-reports.html&quot;&gt;CVE-2019-12422&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;Updates the default Cipher mode to GCM in AesCipherService (&lt;a href=&quot;/security-reports.html&quot;&gt;CVE-2019-12422&lt;/a&gt;)&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
@@ -394,7 +394,7 @@ This is a feature release for 1.x.&lt;/p&gt;
 &lt;p&gt;Release binaries (.jars) are also available through Maven Central and source bundles through Apache distribution mirrors.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;For more information on &lt;a href=&quot;documentation.html&quot;&gt;Shiro, please read the documentation.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;For more information on &lt;a href=&quot;/documentation.html&quot;&gt;Shiro, please read the documentation.&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Enjoy!&lt;/p&gt;
@@ -445,7 +445,7 @@ This is a feature release for 1.x.&lt;/p&gt;
 &lt;p&gt;Release binaries (.jars) are also available through Maven Central and source bundles through Apache distribution mirrors.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;For more information on &lt;a href=&quot;documentation.html&quot;&gt;Shiro, please read the documentation.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;For more information on &lt;a href=&quot;/documentation.html&quot;&gt;Shiro, please read the documentation.&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Enjoy!&lt;/p&gt;
@@ -500,7 +500,7 @@ Maven, Gradle, and Ivy users will NOT be affected.&lt;/p&gt;
 &lt;p&gt;Release binaries (.jars) are also available through Maven Central and source bundles through Apache distribution mirrors.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;For more information on &lt;a href=&quot;documentation.html&quot;&gt;Shiro, please read the documentation.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;For more information on &lt;a href=&quot;/documentation.html&quot;&gt;Shiro, please read the documentation.&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Enjoy!&lt;/p&gt;
@@ -695,7 +695,7 @@ documentation.&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;All binaries (.jars) are available in Maven Central already. Please note that the Apache mirrors are still updating to reflect the source distribution, but some mirrors may not be updated yet. If a mirror download link does not work, please try another or wait another 12 to 24 hours.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;For more information on Shiro 1.2, please read the &lt;a href=&quot;https://stormpath.com/blog/whats-new-apache-shiro-12&quot;&gt;What&amp;#8217;s new in Apache Shiro 1.2?&lt;/a&gt; article or the previous &lt;a href=&quot;/2012/01/24/apache-shiro-120-released.html&quot;&gt;1.2 release announcement&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;For more information on Shiro 1.2, please read the &lt;a href=&quot;https://stormpath.com/blog/whats-new-apache-shiro-12&quot;&gt;What&amp;#8217;s new in Apache Shiro 1.2?&lt;/a&gt; article or the previous &lt;a href=&quot;/blog/2012/01/24/apache-shiro-120-released.html&quot;&gt;1.2 release announcement&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Enjoy!&lt;/p&gt;
@@ -727,7 +727,7 @@ Please note that the Apache mirrors are still updating to reflect the source dis
 If a mirror download link does not work, please try another or wait another 12 to 24 hours.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;For more information on Shiro 1.2, please read the &quot;&lt;a href=&quot;https://stormpath.com/blog/whats-new-apache-shiro-12&quot;&gt;What&amp;#8217;s new in Apache Shiro 1.2?&lt;/a&gt;&quot; article or the previous &lt;a href=&quot;/2012/01/24/apache-shiro-120-released.html&quot;&gt;1.2 release announcement&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;For more information on Shiro 1.2, please read the &quot;&lt;a href=&quot;https://stormpath.com/blog/whats-new-apache-shiro-12&quot;&gt;What&amp;#8217;s new in Apache Shiro 1.2?&lt;/a&gt;&quot; article or the previous &lt;a href=&quot;/blog/2012/01/24/apache-shiro-120-released.html&quot;&gt;1.2 release announcement&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Enjoy!&lt;/p&gt;
