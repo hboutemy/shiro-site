@@ -20,7 +20,7 @@
     <meta charset="utf-8"/>
     <title>Overview of Apache Shiro | Apache Shiro</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content='documentation,manual'>
+    <meta name="keywords" content='documentation,overview'>
     <meta name="generator" content="JBake">
     <meta name="google-site-verification" content="QIax6uT5UX3enoU0G8Pz2pXbQ45KaQuHZ3nCh9V27mw">
     <meta name="google-site-verification" content="ecFap6dWJgS_GCCtxmJQJ_nFYQhM6EgSpBPZDU7xsCE">
@@ -31,11 +31,11 @@
     <meta property="og:type" content="article"/>
       <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@ApacheShiro" />
-    <meta property="article:modification_time" content="2021-10-15"/>
+    <meta property="article:modification_time" content="2021-11-20"/>
     <meta property="article:tag" content='documentation'/>
-    <meta property="article:tag" content='manual'/>
+    <meta property="article:tag" content='overview'/>
     <meta property="og:locale" content="en_US" />
-    <meta property="og:url" content='https://shiro-jbake.staged.apache.org/overview.html'/>
+    <meta property="og:url" content='https://shiro.apache.org/overview.html'/>
     <meta property="og:image" content='img/shiro-featured-image.png'/>
     <meta property="og:image:width" content='1200'/>
     <meta property="og:image:height" content='628'/>
@@ -167,33 +167,75 @@
 	</div>
 
 
-<p><a name="Overview-Introduction"></a></p>
-<h2>Introduction</h2>
+<div class="sect1">
+<h2 id="introduction">Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
 <p>Apache Shiro is a powerful and flexible open-source security framework that cleanly handles authentication, authorization, enterprise session management and cryptography.</p>
-<p>Apache Shiro's first and foremost goal is to be easy to use and understand. Security can be very complex at times, even painful, but it doesn't have to be. A framework should mask complexities where possible and expose a clean and intuitive API that simplifies the developer's effort to make their application(s) secure.</p>
+</div>
+<div class="paragraph">
+<p>Apache Shiro&#8217;s first and foremost goal is to be easy to use and understand. Security can be very complex at times, even painful, but it doesn&#8217;t have to be. A framework should mask complexities where possible and expose a clean and intuitive API that simplifies the developer&#8217;s effort to make their application(s) secure.</p>
+</div>
+<div class="paragraph">
 <p>Here are some things that you can do with Apache Shiro:</p>
+</div>
+<div class="ulist">
 <ul>
-<li>Authenticate a user to verify their identity</li>
-<li>Perform access control for a user, such as:
-<ul>
-<li>Determine if a user is assigned a certain security role or not</li>
-<li>Determine if a user is permitted to do something or not</li>
-</ul>
+<li>
+<p>Authenticate a user to verify their identity</p>
 </li>
-<li>Use a Session API in any environment, even without web or EJB containers.</li>
-<li>React to events during authentication, access control, or during a session's lifetime.</li>
-<li>Aggregate 1 or more data sources of user security data and present this all as a single composite user 'view'.</li>
-<li>Enable Single Sign On (SSO) functionality</li>
-<li>Enable 'Remember Me' services for user association without login<br />
-...<br />
-and much more - all integrated into a cohesive easy-to-use API.</li>
+<li>
+<p>Perform access control for a user, such as:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Determine if a user is assigned a certain security role or not</p>
+</li>
+<li>
+<p>Determine if a user is permitted to do something or not</p>
+</li>
 </ul>
+</div>
+</li>
+<li>
+<p>Use a Session API in any environment, even without web or EJB containers.</p>
+</li>
+<li>
+<p>React to events during authentication, access control, or during a session&#8217;s lifetime.</p>
+</li>
+<li>
+<p>Aggregate 1 or more data sources of user security data and present this all as a single composite user 'view'.</p>
+</li>
+<li>
+<p>Enable Single Sign On (SSO) functionality</p>
+</li>
+<li>
+<p>Enable 'Remember Me' services for user association without login
+…
+and much more - all integrated into a cohesive easy-to-use API.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
 <p>Shiro attempts to achieve these goals for all application environments - from the simplest command line application to the largest enterprise applications, without forcing dependencies on other 3rd party frameworks, containers, or application servers. Of course the project aims to integrate into these environments wherever possible, but it could be used out-of-the-box in any environment.</p>
-<p><a name="Overview-Features"></a></p>
-<h2>Features</h2>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="features">Features</h2>
+<div class="sectionbody">
+<div class="paragraph">
 <p>Apache Shiro is a comprehensive application security framework with many features. The following diagram shows where Shiro focuses its energy, and this reference manual will be organized similarly:</p>
-<p><img src="/img/ShiroFeatures.png" style="margin:0px auto;display:block"></img></p>
-<p>Shiro targets what the Shiro development team calls &quot;the four cornerstones of application security&quot; - Authentication, Authorization, Session Management, and Cryptography:</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="img/ShiroFeatures.png" alt="Apache Shiro Features">
+</div>
+</div>
+<div class="paragraph">
+<p>Shiro targets what the Shiro development team calls "the four cornerstones of application security" - Authentication, Authorization, Session Management, and Cryptography:</p>
+</div>
+<div class="ulist">
 <ul>
 <li>
 <p><strong>Authentication:</strong> Sometimes referred to as 'login', this is the act of proving a user is who they say they are.</p>
@@ -208,52 +250,122 @@ and much more - all integrated into a cohesive easy-to-use API.</li>
 <p><strong>Cryptography:</strong> Keeping data secure using cryptographic algorithms while still being easy to use.</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
 <p>There are also additional features to support and reinforce these concerns in different application environments, especially:</p>
+</div>
+<div class="ulist">
 <ul>
-<li>Web Support: Shiro's web support APIs help easily secure web applications.</li>
-<li>Caching: Caching is a first-tier citizen in Apache Shiro's API to ensure that security operations remain fast and efficient.</li>
-<li>Concurrency: Apache Shiro supports multi-threaded applications with its concurrency features.</li>
-<li>Testing: Test support exists to help you write unit and integration tests and ensure your code will be secured as expected.</li>
-<li>&quot;Run As&quot;: A feature that allows users to assume the identity of another user (if they are allowed), sometimes useful in administrative scenarios.</li>
-<li>&quot;Remember Me&quot;: Remember users' identities across sessions so they only need to log in when mandatory.</li>
+<li>
+<p>Web Support: Shiro&#8217;s web support APIs help easily secure web applications.</p>
+</li>
+<li>
+<p>Caching: Caching is a first-tier citizen in Apache Shiro&#8217;s API to ensure that security operations remain fast and efficient.</p>
+</li>
+<li>
+<p>Concurrency: Apache Shiro supports multi-threaded applications with its concurrency features.</p>
+</li>
+<li>
+<p>Testing: Test support exists to help you write unit and integration tests and ensure your code will be secured as expected.</p>
+</li>
+<li>
+<p>"Run As": A feature that allows users to assume the identity of another user (if they are allowed), sometimes useful in administrative scenarios.</p>
+</li>
+<li>
+<p>"Remember Me": Remember users' identities across sessions so they only need to log in when mandatory.</p>
+</li>
 </ul>
-<p><a name="Overview-AFirstLookatApacheShiro"></a></p>
-<h2>A First Look at Apache Shiro</h2>
-<p>Apache Shiro's design goals are to simplify application security by being intuitive and easy to use. Shiro's core design models how most people think about application security - in the context of someone (or something) interacting with an application.</p>
-<p>Software applications are usually designed based on user stories. That is, you'll often design user interfaces or service APIs based on how a user would (or should) interact with the software. For example, you might say, &quot;If the user interacting with my application is logged in, I will show them a button they can click to view their account information. If they are not logged in, I will show a sign-up button.&quot;</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="a_first_look_at_apache_shiro">A First Look at Apache Shiro</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Apache Shiro&#8217;s design goals are to simplify application security by being intuitive and easy to use. Shiro&#8217;s core design models how most people think about application security - in the context of someone (or something) interacting with an application.</p>
+</div>
+<div class="paragraph">
+<p>Software applications are usually designed based on user stories. That is, you&#8217;ll often design user interfaces or service APIs based on how a user would (or should) interact with the software. For example, you might say, "If the user interacting with my application is logged in, I will show them a button they can click to view their account information. If they are not logged in, I will show a sign-up button."</p>
+</div>
+<div class="paragraph">
 <p>This example statement indicates that applications are largely written to satisfy user requirements and needs. Even if the 'user' is another software system and not a human being, you still write code to reflect behavior based on who (or what) is currently interacting with your software.</p>
+</div>
+<div class="paragraph">
 <p>Shiro largely reflects these concepts in its own design. By matching what is already intuitive for software developers, Apache Shiro remains intuitive and easy to use in practically any application.</p>
-<p><a name="Overview-BasicDesign"></a></p>
-<h3>Bsic Design</h3>
-<p>Shiro's architecture has 3 primary concepts: the <code>Subject</code>, <code>SecurityManager</code> and <code>Realm</code> s. The following diagram is a high-level overview of how these concepts interact, and we'll cover each concept below:</p>
-<p><img src="/img/ShiroBasicArchitecture.png" style="margin:0px auto;display:block"></img></p>
-<p><a name="Overview-Subject"></a></p>
-<h4>Subject</h4>
+</div>
+<div class="sect2">
+<h3 id="bsic_design">Bsic Design</h3>
+<div class="paragraph">
+<p>Shiro&#8217;s architecture has 3 primary concepts: the <code>Subject</code>, <code>SecurityManager</code> and <code>Realm</code> s. The following diagram is a high-level overview of how these concepts interact, and we&#8217;ll cover each concept below:</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="img/ShiroArchitecture.png" alt="Apache Shiro Architecture">
+</div>
+</div>
+<div class="sect3">
+<h4 id="subject">Subject</h4>
+<div class="paragraph">
 <p>The <code>Subject</code> is essentially a security specific 'view' of the the currently executing user. Notice that it is not actually named <em>User</em> however. The name <em>Subject</em> was chosen for two reasons:</p>
-<ol>
-<li>The word 'User' often implies a human being in many software systems. But sometimes the 'currently executing user' isn't a human being at all - maybe it is a 3rd-party process or remote server or daemon account. The word 'Subject' is more general and can mean 'the entity interacting with the software'.</li>
-<li>The word 'Subject', because it is a general-purpose concept, is the actual term most often used in the security world. We retain that definition to be consistent.</li>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The word 'User' often implies a human being in many software systems. But sometimes the 'currently executing user' isn&#8217;t a human being at all - maybe it is a 3rd-party process or remote server or daemon account. The word 'Subject' is more general and can mean 'the entity interacting with the software'.</p>
+</li>
+<li>
+<p>The word 'Subject', because it is a general-purpose concept, is the actual term most often used in the security world. We retain that definition to be consistent.</p>
+</li>
 </ol>
+</div>
+<div class="paragraph">
 <p>You can acquire the current <code>Subject</code> anywhere in your application code as shown here:</p>
-<pre><code class="language-java">import org.apache.shiro.subject.Subject;
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import org.apache.shiro.subject.Subject;
 import org.apache.shiro.SecurityUtils;
 ...
-Subject currentUser = SecurityUtils.getSubject();
-</code></pre>
+Subject currentUser = SecurityUtils.getSubject();</code></pre>
+</div>
+</div>
+<div class="paragraph">
 <p>Once you have a <code>Subject</code> instance, you immediately have access to 90% of everything you would ever need to do to perform security for that Subject, such as login and logout, perform role and permission checks, access their session, and more - but more about this later. The most important thing to know is that the <code>Subject</code> is your 'security-specific view' of an application 'user' and that you can essentially access this anywhere in application code to perform whatever security operations you need.</p>
-<p><a name="Overview-TheSecurityManager"></a></p>
-<h4>The SecurityManager</h4>
+</div>
+</div>
+<div class="sect3">
+<h4 id="the_securitymanager">The SecurityManager</h4>
+<div class="paragraph">
 <p>While application developers almost exclusively interact with <code>Subject</code> instances in their code, Subjects have a 'behind the scenes' counterpart that makes them work - the Shiro <code>SecurityManager</code> (note this is <em>not</em> the same thing as the <code>java.lang.SecurityManager</code>).</p>
+</div>
+<div class="paragraph">
 <p>While a <code>Subject</code> instance represents security information and operations for a single user, the Shiro <code>SecurityManager</code> manages security operations for <em>all</em> users. It is essentially the 'man behind the curtain' that manages all features in Shiro for all Subjects. Each software application that uses Shiro typically has one and only one <code>SecurityManager</code> instance.</p>
+</div>
+<div class="paragraph">
 <p>The <code>SecurityManager</code> is the heart of Shiro’s architecture and acts as a sort of 'umbrella’ object that coordinates internally nested security components that form an object graph. However, once the SecurityManager and its internal object graph is configured, it is usually left alone and application developers spend almost all of their time with the <code>Subject</code> API.</p>
+</div>
+<div class="paragraph">
 <p>We will talk about the <code>SecurityManager</code> in detail later on, but it is important to realize that when you interact with a <code>Subject</code>, it is really the <code>SecurityManager</code> behind the scenes that does all the heavy lifting for any <code>Subject</code> security operation. This is reflected in the basic flow diagram above.</p>
-<p><a name="Overview-Realms"></a></p>
-<h4>Realms</h4>
+</div>
+</div>
+<div class="sect3">
+<h4 id="realms">Realms</h4>
+<div class="paragraph">
 <p>The third and final core concept in Shiro is that of a Realm. A Realm acts as the ‘bridge’ or ‘connector’ between Shiro and your application’s security data. That is, when it comes time to actually interact with security-related data like user accounts to perform authentication (login) and authorization (access control), Shiro looks up many of these things from one or more Realms configured for an application.</p>
+</div>
+<div class="paragraph">
 <p>In this sense a Realm is essentially a security-specific <a href="https://en.wikipedia.org/wiki/Data_access_object">DAO</a>: it encapsulates connection details for data sources and makes the associated data available to Shiro as needed. When configuring Shiro, you must specify at least one Realm to use for authentication and/or authorization. More than one Realm may be configured, but at least one is required.</p>
+</div>
+<div class="paragraph">
 <p>Shiro provides out-of-the-box Realms to connect to a number of security data sources (aka directories) such as LDAP, relational databases (JDBC), text configuration sources like INI and properties files, and more. You can plug-in your own Realm implementations to represent custom data sources if the default Realms do not meet your needs.</p>
+</div>
+<div class="paragraph">
 <p>Like other internal components, the Shiro <code>SecurityManager</code> manages how Realms are used to acquire security data and then represented as <code>Subject</code> instances.</p>
-
+</div>
+</div>
+</div>
+</div>
+</div>
 	<hr />
 
 </div> 
@@ -266,7 +378,7 @@ Subject currentUser = SecurityUtils.getSubject();
           <div class="copyright-footer justify-content-start">
             <a href="https://www.apache.org/foundation/contributing.html">Donate to the ASF</a>&nbsp;|&nbsp;
             <a href="https://www.apache.org/licenses/LICENSE-2.0.html">License</a>&nbsp;
-            <p class="text-muted">Copyright &copy; 2008-2021 The Apache Software Foundation</p>
+            <p class="text-muted">Copyright &copy; 2008-2022 The Apache Software Foundation</p>
           </div>
         </div>
 
@@ -277,7 +389,7 @@ Subject currentUser = SecurityUtils.getSubject();
         </div>
 
         <div class="d-flex justify-content-end col-md-4" id="editThisPage">
-          <input type="hidden" id="ghEditPage" value="https://github.com/apache/shiro-site/edit/jbake/jbake/content/overview.md"/>
+          <input type="hidden" id="ghEditPage" value="https://github.com/apache/shiro-site/edit/jbake/jbake/content/overview.adoc"/>
         </div>
 
         <div class="d-flex col-md-2 justify-content-end" style="position: relative">

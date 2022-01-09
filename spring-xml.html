@@ -31,11 +31,11 @@
     <meta property="og:type" content="article"/>
       <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@ApacheShiro" />
-    <meta property="article:modification_time" content="2021-10-15"/>
+    <meta property="article:modification_time" content="2021-11-20"/>
     <meta property="article:tag" content='documentation'/>
     <meta property="article:tag" content='manual'/>
     <meta property="og:locale" content="en_US" />
-    <meta property="og:url" content='https://shiro-jbake.staged.apache.org/spring-xml.html'/>
+    <meta property="og:url" content='https://shiro.apache.org/spring-xml.html'/>
     <meta property="og:image" content='img/shiro-featured-image.png'/>
     <meta property="og:image:width" content='1200'/>
     <meta property="og:image:height" content='628'/>
@@ -167,40 +167,85 @@
 	</div>
 
 
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
 <p>This page covers the ways to integrate Shiro into <a href="http://spring.io">Spring</a>-based applications.</p>
-<p>Shiro's JavaBeans compatibility makes it perfectly suited to be configured via Spring XML or other Spring-based configuration mechanisms. Shiro applications need an application singleton <code>SecurityManager</code> instance. Note that this does not have to be a <em>static</em> singleton, but there should only be a single instance used by the application, whether its a static singleton or not.</p>
-<h2>Standalone Applications</h2>
+</div>
+<div class="paragraph">
+<p>Shiro&#8217;s JavaBeans compatibility makes it perfectly suited to be configured via Spring XML or other Spring-based configuration mechanisms. Shiro applications need an application singleton <code>SecurityManager</code> instance. Note that this does not have to be a <em>static</em> singleton, but there should only be a single instance used by the application, whether its a static singleton or not.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="standalone_applications">Standalone Applications</h2>
+<div class="sectionbody">
+<div class="paragraph">
 <p>Here is the simplest way to enable an application singleton <code>SecurityManager</code> in Spring applications:</p>
-<pre><code class="language-xml">&lt;!-- Define the realm you want to use to connect to your back-end security datasource: --&gt;
-&lt;bean id=&quot;myRealm&quot; class=&quot;...&quot;&gt;
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;!-- Define the realm you want to use to connect to your back-end security datasource: --&gt;
+&lt;bean id="myRealm" class="..."&gt;
     ...
 &lt;/bean&gt;
 
-&lt;bean id=&quot;securityManager&quot; class=&quot;org.apache.shiro.mgt.DefaultSecurityManager&quot;&gt;
+&lt;bean id="securityManager" class="org.apache.shiro.mgt.DefaultSecurityManager"&gt;
     &lt;!-- Single realm app.  If you have multiple realms, use the 'realms' property instead. --&gt;
-    &lt;property name=&quot;realm&quot; ref=&quot;myRealm&quot;/&gt;
+    &lt;property name="realm" ref="myRealm"/&gt;
 &lt;/bean&gt;
 
-&lt;bean id=&quot;lifecycleBeanPostProcessor&quot; class=&quot;org.apache.shiro.spring.LifecycleBeanPostProcessor&quot;/&gt;
+&lt;bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/&gt;
 
 &lt;!-- For simplest integration, so that all SecurityUtils.* methods work in all cases, --&gt;
 &lt;!-- make the securityManager bean a static singleton.  DO NOT do this in web         --&gt;
 &lt;!-- applications - see the 'Web Applications' section below instead.                 --&gt;
-&lt;bean class=&quot;org.springframework.beans.factory.config.MethodInvokingFactoryBean&quot;&gt;
-    &lt;property name=&quot;staticMethod&quot; value=&quot;org.apache.shiro.SecurityUtils.setSecurityManager&quot;/&gt;
-    &lt;property name=&quot;arguments&quot; ref=&quot;securityManager&quot;/&gt;
-&lt;/bean&gt;
-</code></pre>
-<h2>Web Applications</h2>
-<p>Shiro has first-rate support for Spring web applications. In a web application, all Shiro-accessible web requests must go through a main Shiro Filter. This filter itself is extremely powerful, allowing for<br />
+&lt;bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean"&gt;
+    &lt;property name="staticMethod" value="org.apache.shiro.SecurityUtils.setSecurityManager"/&gt;
+    &lt;property name="arguments" ref="securityManager"/&gt;
+&lt;/bean&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="web_applications">Web Applications</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Shiro has first-rate support for Spring web applications. In a web application, all Shiro-accessible web requests must go through a main Shiro Filter. This filter itself is extremely powerful, allowing for
 ad-hoc custom filter chains to be executed based on any URL path expression.</p>
-<p>Prior to Shiro 1.0, you had to use a hybrid approach in Spring web applications, defining the Shiro filter and<br />
-all of its configuration properties in web.xml but define the <code>SecurityManager</code> in Spring XML. This was a little frustrating since you couldn't 1) consolidate your configuration in one place and 2) leverage the configuration power of the more advanced Spring features, like the <code>PropertyPlaceholderConfigurer</code> or abstract beans to consolidate common configuration.</p>
+</div>
+<div class="paragraph">
+<p>Prior to Shiro 1.0, you had to use a hybrid approach in Spring web applications, defining the Shiro filter and
+all of its configuration properties in web.xml but define the <code>SecurityManager</code> in Spring XML.</p>
+</div>
+<div class="paragraph">
+<p>This was a little frustrating since you couldn&#8217;t</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>consolidate your configuration in one place and</p>
+</li>
+<li>
+<p>leverage the configuration power of the more advanced Spring features, like the <code>PropertyPlaceholderConfigurer</code> or abstract beans to consolidate common configuration.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
 <p>Now in Shiro 1.0 and later, all Shiro configuration is done in Spring XML providing access to the more robust Spring configuration mechanisms.</p>
+</div>
+<div class="paragraph">
 <p>Here is how to configure Shiro in a Spring-based web application:</p>
-<h3>web.xml</h3>
+</div>
+<div class="sect2">
+<h3 id="web_xml">web.xml</h3>
+<div class="paragraph">
 <p>In addition to your other Spring web.xml elements (<code>ContextLoaderListener</code>, <code>Log4jConfigListener</code>, etc), define the following filter and filter mapping:</p>
-<pre><code class="language-xml">&lt;!-- The filter-name matches name of a 'shiroFilter' bean inside applicationContext.xml --&gt;
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;!-- The filter-name matches name of a 'shiroFilter' bean inside applicationContext.xml --&gt;
 &lt;filter&gt;
     &lt;filter-name&gt;shiroFilter&lt;/filter-name&gt;
     &lt;filter-class&gt;org.springframework.web.filter.DelegatingFilterProxy&lt;/filter-class&gt;
@@ -218,26 +263,35 @@ all of its configuration properties in web.xml but define the <code>SecurityMana
 &lt;filter-mapping&gt;
     &lt;filter-name&gt;shiroFilter&lt;/filter-name&gt;
     &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
-&lt;/filter-mapping&gt;
-</code></pre>
+&lt;/filter-mapping&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
 <p>You can see a full example in our <a href="https://github.com/apache/shiro/tree/main/samples/spring-xml">samples on Github</a>.</p>
-<h3>applicationContext.xml</h3>
+</div>
+</div>
+<div class="sect2">
+<h3 id="applicationcontext_xml">applicationContext.xml</h3>
+<div class="paragraph">
 <p>In your applicationContext.xml file, define the web-enabled <code>SecurityManager</code> and the 'shiroFilter' bean that will be referenced from <code>web.xml</code>.</p>
-<pre><code class="language-xml">&lt;bean id=&quot;shiroFilter&quot; class=&quot;org.apache.shiro.spring.web.ShiroFilterFactoryBean&quot;&gt;
-    &lt;property name=&quot;securityManager&quot; ref=&quot;securityManager&quot;/&gt;
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean"&gt;
+    &lt;property name="securityManager" ref="securityManager"/&gt;
     &lt;!-- override these for application-specific URLs if you like:
-    &lt;property name=&quot;loginUrl&quot; value=&quot;/login.jsp&quot;/&gt;
-    &lt;property name=&quot;successUrl&quot; value=&quot;/home.jsp&quot;/&gt;
-    &lt;property name=&quot;unauthorizedUrl&quot; value=&quot;/unauthorized.jsp&quot;/&gt; --&gt;
+    &lt;property name="loginUrl" value="/login.jsp"/&gt;
+    &lt;property name="successUrl" value="/home.jsp"/&gt;
+    &lt;property name="unauthorizedUrl" value="/unauthorized.jsp"/&gt; --&gt;
     &lt;!-- The 'filters' property is not necessary since any declared javax.servlet.Filter bean  --&gt;
     &lt;!-- defined will be automatically acquired and available via its beanName in chain        --&gt;
     &lt;!-- definitions, but you can perform instance overrides or name aliases here if you like: --&gt;
-    &lt;!-- &lt;property name=&quot;filters&quot;&gt;
+    &lt;!-- &lt;property name="filters"&gt;
         &lt;util:map&gt;
-            &lt;entry key=&quot;anAlias&quot; value-ref=&quot;someFilter&quot;/&gt;
+            &lt;entry key="anAlias" value-ref="someFilter"/&gt;
         &lt;/util:map&gt;
     &lt;/property&gt; --&gt;
-    &lt;property name=&quot;filterChainDefinitions&quot;&gt;
+    &lt;property name="filterChainDefinitions"&gt;
         &lt;value&gt;
             # some example chain definitions:
             /admin/** = authc, roles[admin]
@@ -252,69 +306,125 @@ all of its configuration properties in web.xml but define the <code>SecurityMana
 &lt;!-- They will automatically be acquired by the 'shiroFilter' bean above and made available --&gt;
 &lt;!-- to the 'filterChainDefinitions' property.  Or you can manually/explicitly add them     --&gt;
 &lt;!-- to the shiroFilter's 'filters' Map if desired. See its JavaDoc for more details.       --&gt;
-&lt;bean id=&quot;someFilter&quot; class=&quot;...&quot;/&gt;
-&lt;bean id=&quot;anotherFilter&quot; class=&quot;...&quot;&gt; ... &lt;/bean&gt;
+&lt;bean id="someFilter" class="..."/&gt;
+&lt;bean id="anotherFilter" class="..."&gt; ... &lt;/bean&gt;
 ...
 
-&lt;bean id=&quot;securityManager&quot; class=&quot;org.apache.shiro.web.mgt.DefaultWebSecurityManager&quot;&gt;
+&lt;bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager"&gt;
     &lt;!-- Single realm app.  If you have multiple realms, use the 'realms' property instead. --&gt;
-    &lt;property name=&quot;realm&quot; ref=&quot;myRealm&quot;/&gt;
+    &lt;property name="realm" ref="myRealm"/&gt;
     &lt;!-- By default the servlet container sessions will be used.  Uncomment this line
          to use shiro's native sessions (see the JavaDoc for more): --&gt;
-    &lt;!-- &lt;property name=&quot;sessionMode&quot; value=&quot;native&quot;/&gt; --&gt;
+    &lt;!-- &lt;property name="sessionMode" value="native"/&gt; --&gt;
 &lt;/bean&gt;
-&lt;bean id=&quot;lifecycleBeanPostProcessor&quot; class=&quot;org.apache.shiro.spring.LifecycleBeanPostProcessor&quot;/&gt;
+&lt;bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/&gt;
 
 &lt;!-- Define the Shiro Realm implementation you want to use to connect to your back-end --&gt;
 &lt;!-- security datasource: --&gt;
-&lt;bean id=&quot;myRealm&quot; class=&quot;...&quot;&gt;
+&lt;bean id="myRealm" class="..."&gt;
     ...
-&lt;/bean&gt;
-</code></pre>
-<h2>Enabling Shiro Annotations</h2>
-<p>In both standalone and web applications, you might want to use Shiro's Annotations for security checks (for example, <code>@RequiresRoles</code>, <code>@RequiresPermissions</code>, etc. This requires Shiro's Spring AOP integration to scan for the appropriate annotated classes and perform security logic as necessary.</p>
+&lt;/bean&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="enabling_shiro_annotations">Enabling Shiro Annotations</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In both standalone and web applications, you might want to use Shiro&#8217;s Annotations for security checks (for example, <code>@RequiresRoles</code>, <code>@RequiresPermissions</code>, etc. This requires Shiro&#8217;s Spring AOP integration to scan for the appropriate annotated classes and perform security logic as necessary.</p>
+</div>
+<div class="paragraph">
 <p>Here is how to enable these annotations. Just add these two bean definitions to <code>applicationContext.xml</code>:</p>
-<pre><code class="language-xml">&lt;!-- Enable Shiro Annotations for Spring-configured beans.  Only run after --&gt;
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;!-- Enable Shiro Annotations for Spring-configured beans.  Only run after --&gt;
 &lt;!-- the lifecycleBeanProcessor has run: --&gt;
-&lt;bean class=&quot;org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator&quot; depends-on=&quot;lifecycleBeanPostProcessor&quot;/&gt;
-    &lt;bean class=&quot;org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor&quot;&gt;
-    &lt;property name=&quot;securityManager&quot; ref=&quot;securityManager&quot;/&gt;
-&lt;/bean&gt;
-</code></pre>
-<h2>Secure Spring Remoting</h2>
-<p>There are two parts to Shiro's Spring remoting support: Configuration for the client making the remoting call and configuration for the server receiving and processing the remoting call.</p>
-<h3>Server-side Configuration</h3>
-<p>When a remote method invocation comes in to a Shiro-enabled server, the <a href="subject.html" title="Subject">Subject</a> associated with that RPC call must be bound to the receiving thread for access during the thread's execution. This is done by defining Shiro's <code>SecureRemoteInvocationExecutor</code> bean in <code>applicationContext.xml</code>:</p>
-<pre><code class="language-xml">&lt;!-- Secure Spring remoting:  Ensure any Spring Remoting method invocations --&gt;
+&lt;bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" depends-on="lifecycleBeanPostProcessor"/&gt;
+    &lt;bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor"&gt;
+    &lt;property name="securityManager" ref="securityManager"/&gt;
+&lt;/bean&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="secure_spring_remoting">Secure Spring Remoting</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>There are two parts to Shiro&#8217;s Spring remoting support: Configuration for the client making the remoting call and configuration for the server receiving and processing the remoting call.</p>
+</div>
+<div class="sect2">
+<h3 id="server_side_configuration">Server-side Configuration</h3>
+<div class="paragraph">
+<p>When a remote method invocation comes in to a Shiro-enabled server, the <a href="subject.html">Subject</a> associated with that RPC call must be bound to the receiving thread for access during the thread&#8217;s execution. This is done by defining Shiro&#8217;s <code>SecureRemoteInvocationExecutor</code> bean in <code>applicationContext.xml</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;!-- Secure Spring remoting:  Ensure any Spring Remoting method invocations --&gt;
 &lt;!-- can be associated with a Subject for security checks. --&gt;
-&lt;bean id=&quot;secureRemoteInvocationExecutor&quot; class=&quot;org.apache.shiro.spring.remoting.SecureRemoteInvocationExecutor&quot;&gt;
-    &lt;property name=&quot;securityManager&quot; ref=&quot;securityManager&quot;/&gt;
-&lt;/bean&gt;
-</code></pre>
-<p>Once you have defined this bean, you must plug it in to whatever remoting <code>Exporter</code> you are using to export/expose your services. <code>Exporter</code> implementations are defined according to the remoting mechanism/protocol in use. See Spring's <a href="http://docs.spring.io/spring/docs/2.5.x/reference/remoting.html">Remoting chapter</a> on defining <code>Exporter</code> beans.</p>
+&lt;bean id="secureRemoteInvocationExecutor" class="org.apache.shiro.spring.remoting.SecureRemoteInvocationExecutor"&gt;
+    &lt;property name="securityManager" ref="securityManager"/&gt;
+&lt;/bean&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Once you have defined this bean, you must plug it in to whatever remoting <code>Exporter</code> you are using to export/expose your services. <code>Exporter</code> implementations are defined according to the remoting mechanism/protocol in use. See Spring&#8217;s <a href="http://docs.spring.io/spring/docs/2.5.x/reference/remoting.html">Remoting chapter</a> on defining <code>Exporter</code> beans.</p>
+</div>
+<div class="paragraph">
 <p>For example, if using HTTP-based remoting (notice the property reference to the <code>secureRemoteInvocationExecutor</code> bean):</p>
-<pre><code class="language-xml">&lt;bean name=&quot;/someService&quot; class=&quot;org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter&quot;&gt;
-    &lt;property name=&quot;service&quot; ref=&quot;someService&quot;/&gt;
-    &lt;property name=&quot;serviceInterface&quot; value=&quot;com.pkg.service.SomeService&quot;/&gt;
-    &lt;property name=&quot;remoteInvocationExecutor&quot; ref=&quot;secureRemoteInvocationExecutor&quot;/&gt;
-&lt;/bean&gt;
-</code></pre>
-<h3>Client-side Configuration</h3>
-<p>When a remote call is being executed, the <code>Subject</code> identifying information must be attached to the remoting payload to let the server know who is making the call. If the client is a Spring-based client, that association is done via Shiro's <code>SecureRemoteInvocationFactory</code>:</p>
-<pre><code class="language-xml">&lt;bean id=&quot;secureRemoteInvocationFactory&quot; class=&quot;org.apache.shiro.spring.remoting.SecureRemoteInvocationFactory&quot;/&gt;
-</code></pre>
-<p>Then after you've defined this bean, you need to plug it in to the protocol-specific Spring remoting <code>ProxyFactoryBean</code> you're using.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;bean name="/someService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"&gt;
+    &lt;property name="service" ref="someService"/&gt;
+    &lt;property name="serviceInterface" value="com.pkg.service.SomeService"/&gt;
+    &lt;property name="remoteInvocationExecutor" ref="secureRemoteInvocationExecutor"/&gt;
+&lt;/bean&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="client_side_configuration">Client-side Configuration</h3>
+<div class="paragraph">
+<p>When a remote call is being executed, the <code>Subject</code> identifying information must be attached to the remoting payload to let the server know who is making the call. If the client is a Spring-based client, that association is done via Shiro&#8217;s <code>SecureRemoteInvocationFactory</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;bean id="secureRemoteInvocationFactory" class="org.apache.shiro.spring.remoting.SecureRemoteInvocationFactory"/&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then after you&#8217;ve defined this bean, you need to plug it in to the protocol-specific Spring remoting <code>ProxyFactoryBean</code> you&#8217;re using.</p>
+</div>
+<div class="paragraph">
 <p>For example, if you were using HTTP-based remoting (notice the property reference to the <code>secureRemoteInvocationFactory</code> bean defined above):</p>
-<pre><code class="language-xml">&lt;bean id=&quot;someService&quot; class=&quot;org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean&quot;&gt;
-    &lt;property name=&quot;serviceUrl&quot; value=&quot;http://host:port/remoting/someService&quot;/&gt;
-    &lt;property name=&quot;serviceInterface&quot; value=&quot;com.pkg.service.SomeService&quot;/&gt;
-    &lt;property name=&quot;remoteInvocationFactory&quot; ref=&quot;secureRemoteInvocationFactory&quot;/&gt;
-&lt;/bean&gt;
-</code></pre>
-<h2>Lend a hand with documentation</h2>
-<p>While we hope this documentation helps you with the work you're doing with Apache Shiro, the community is improving and expanding the documentation all the time. If you'd like to help the Shiro project, please consider correcting, expanding, or adding documentation where you see a need. Every little bit of help you provide expands the community and in turn improves Shiro.</p>
-<p>The easiest way to contribute your documentation is to send it to the <a href="http://shiro-user.582556.n2.nabble.com/">User Forum</a> or the <a href="mailing-lists.html" title="Mailing Lists">User Mailing List</a>.</p>
-
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;bean id="someService" class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"&gt;
+    &lt;property name="serviceUrl" value="http://host:port/remoting/someService"/&gt;
+    &lt;property name="serviceInterface" value="com.pkg.service.SomeService"/&gt;
+    &lt;property name="remoteInvocationFactory" ref="secureRemoteInvocationFactory"/&gt;
+&lt;/bean&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="lend_a_hand_with_documentation">Lend a hand with documentation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>While we hope this documentation helps you with the work you&#8217;re doing with Apache Shiro, the community is improving and expanding the documentation all the time. If you&#8217;d like to help the Shiro project, please consider correcting, expanding, or adding documentation where you see a need. Every little bit of help you provide expands the community and in turn improves Shiro.</p>
+</div>
+<div class="paragraph">
+<p>The easiest way to contribute your documentation is to send it to the <a href="http://shiro-user.582556.n2.nabble.com/">User Forum</a> or the <a href="mailing-lists.html">User Mailing List</a>.</p>
+</div>
+</div>
+</div>
 	<hr />
 
 </div> 
@@ -327,7 +437,7 @@ all of its configuration properties in web.xml but define the <code>SecurityMana
           <div class="copyright-footer justify-content-start">
             <a href="https://www.apache.org/foundation/contributing.html">Donate to the ASF</a>&nbsp;|&nbsp;
             <a href="https://www.apache.org/licenses/LICENSE-2.0.html">License</a>&nbsp;
-            <p class="text-muted">Copyright &copy; 2008-2021 The Apache Software Foundation</p>
+            <p class="text-muted">Copyright &copy; 2008-2022 The Apache Software Foundation</p>
           </div>
         </div>
 
@@ -338,7 +448,7 @@ all of its configuration properties in web.xml but define the <code>SecurityMana
         </div>
 
         <div class="d-flex justify-content-end col-md-4" id="editThisPage">
-          <input type="hidden" id="ghEditPage" value="https://github.com/apache/shiro-site/edit/jbake/jbake/content/spring-xml.md"/>
+          <input type="hidden" id="ghEditPage" value="https://github.com/apache/shiro-site/edit/jbake/jbake/content/spring-xml.adoc"/>
         </div>
 
         <div class="d-flex col-md-2 justify-content-end" style="position: relative">

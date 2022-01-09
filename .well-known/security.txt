@@ -1,5 +1,5 @@
 Contact: mailto:security@shiro.apache.org
-Expires: 2022-10-22T11:27:29Z
+Expires: 2023-01-09T21:22:52Z
 Preferred-Languages: en
 Canonical: https://shiro.apache.org/.well-known/security.txt
 Policy: https://shiro.apache.org/security-reports.html
