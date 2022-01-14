@@ -1,13 +1,13 @@
-<?xml version="1.0"?>
+<?xml version="1.0"? encoding="UTF-8" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>JBake</title>
+    <title>Apache Shiro | The Apache Software Foundation</title>
     <link>https://shiro-jbake.staged.apache.org</link>
     <atom:link href="https://shiro-jbake.staged.apache.org/feed.xml" rel="self" type="application/rss+xml" />
-    <description>JBake Bootstrap Template</description>
+    <description>Apache Shiro | News, Blog, Updates | The Apache Software Foundation</description>
     <language>en-gb</language>
-    <pubDate>Fr., 14 Jan. 2022 12:05:00 +0100</pubDate>
-    <lastBuildDate>Fr., 14 Jan. 2022 12:05:00 +0100</lastBuildDate>
+    <pubDate>Fr., 14 Jan. 2022 22:01:38 +0100</pubDate>
+    <lastBuildDate>Fr., 14 Jan. 2022 22:01:38 +0100</lastBuildDate>
 
     <item>
       <title>Apache Shiro v1.8.0 released</title>

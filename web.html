@@ -31,11 +31,11 @@
     <meta property="og:type" content="article"/>
       <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@ApacheShiro" />
-    <meta property="article:modification_time" content="2021-11-20"/>
+    <meta property="article:modification_time" content="2022-01-14"/>
     <meta property="article:tag" content='documentation'/>
     <meta property="article:tag" content='web'/>
     <meta property="og:locale" content="en_US" />
-    <meta property="og:url" content='https://shiro.apache.org/web.html'/>
+    <meta property="og:url" content='https://shiro-jbake.staged.apache.org/web.html'/>
     <meta property="og:image" content='img/shiro-featured-image.png'/>
     <meta property="og:image:width" content='1200'/>
     <meta property="og:image:height" content='628'/>
@@ -188,7 +188,7 @@
 </li>
 </ul>
 </li>
-<li><a href="#web_ini_configuration">Web INI configuration</a>
+<li><a href="#web_ini">Web INI configuration</a>
 <ul class="sectlevel3">
 <li><a href="#urls"><code>[urls]</code></a>
 <ul class="sectlevel4">
@@ -243,23 +243,24 @@
 <li><a href="#custom_remembermemanager">Custom <code>RememberMeManager</code></a></li>
 </ul>
 </li>
-<li><a href="#jsp_gsp_tag_library">JSP / GSP Tag Library</a>
+<li><a href="#tag_library">JSP / GSP Tag Library</a>
 <ul class="sectlevel2">
-<li><a href="#the_guest_tag">The <code>guest</code> tag</a></li>
-<li><a href="#the_user_tag">The <code>user</code> tag</a></li>
-<li><a href="#the_authenticated_tag">The <code>authenticated</code> tag</a></li>
-<li><a href="#the_notauthenticated_tag">The <code>notAuthenticated</code> tag</a></li>
+<li><a href="#tag_library_configuration">Tag Library Configuration</a></li>
+<li><a href="#web_guesttag">The <code>guest</code> tag</a></li>
+<li><a href="#web_usertag">The <code>user</code> tag</a></li>
+<li><a href="#web_authenticatedtag">The <code>authenticated</code> tag</a></li>
+<li><a href="#web_notauthenticatedtag">The <code>notAuthenticated</code> tag</a></li>
 <li><a href="#the_principal_tag">The <code>principal</code> tag</a>
 <ul class="sectlevel3">
 <li><a href="#typed_principal">Typed principal</a></li>
 <li><a href="#principal_property">Principal property</a></li>
 </ul>
 </li>
-<li><a href="#the_hasrole_tag">The <code>hasRole</code> tag</a></li>
-<li><a href="#the_lacksrole_tag">The <code>lacksRole</code> tag</a></li>
+<li><a href="#web_hasroletag">The <code>hasRole</code> tag</a></li>
+<li><a href="#web_lacksroletag">The <code>lacksRole</code> tag</a></li>
 <li><a href="#the_hasanyrole_tag">The <code>hasAnyRole</code> tag</a></li>
-<li><a href="#the_haspermission_tag">The <code>hasPermission</code> tag</a></li>
-<li><a href="#the_lackspermission_tag">The <code>lacksPermission</code> tag</a></li>
+<li><a href="#web_haspermissiontag">The <code>hasPermission</code> tag</a></li>
+<li><a href="#web_lackspermissiontag">The <code>lacksPermission</code> tag</a></li>
 </ul>
 </li>
 </ul>
@@ -268,13 +269,13 @@
 <h2 id="configuration">Configuration</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The simplest way to integrate Shiro into any web application is to configure a Servlet ContextListener and Filter in web.xml that understands how to read Shiro&#8217;s INI configuration. The bulk of the INI config format itself is defined in the Configuration pages&#8217;s <a href="configuration.html#">[#</a>]#Configuration-INISections[INI Sections] section, but we&#8217;ll cover some additional web-specific sections here.</p>
+<p>The simplest way to integrate Shiro into any web application is to configure a Servlet ContextListener and Filter in web.xml that understands how to read Shiro&#8217;s INI configuration. The bulk of the INI config format itself is defined in the Configuration pages&#8217;s <a href="/configuration.html#Configuration-INIConfiguration-Sections">INI Sections</a> section, but we&#8217;ll cover some additional web-specific sections here.</p>
 </div>
 <div class="exampleblock">
 <div class="title">Example 1. Using Spring?</div>
 <div class="content">
 <div class="paragraph">
-<p>Spring Framework users will not perform this setup. If you use Spring, you will want to read about <a href="spring-boot.html#web-applications">Spring-specific web configuration</a> instead.</p>
+<p>Spring Framework users will not perform this setup. If you use Spring, you will want to read about <a href="/spring-boot.html#web_applications">Spring-specific web configuration</a> instead.</p>
 </div>
 </div>
 </div>
@@ -556,7 +557,7 @@ For example, <code>/WEB-INF/some/path/shiro.ini</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="web_ini_configuration">Web INI configuration</h3>
+<h3 id="web_ini">Web INI configuration</h3>
 <div class="paragraph">
 <p>In addition to the standard <code>[main]</code>, <code>[users]</code> and <code>[roles]</code> sections already described in the main <a href="configuration.html">Configuration</a> chapter, you can additionally specify a web-specific <code>[urls]</code> section in your <code>shiro.ini</code> file:</p>
 </div>
@@ -1031,7 +1032,7 @@ securityManager.sessionManager = $sessionManager</code></pre>
 <div class="sect4">
 <h5 id="native_session_timeout">Native Session Timeout</h5>
 <div class="paragraph">
-<p>After configuring the <code>DefaultWebSessionManager</code> instance, session timeout is configured as described in <a href="session-management.html#">[#</a>]#SessionManagement-sessionTimeout[Session Management: Session Timeout]</p>
+<p>After configuring the <code>DefaultWebSessionManager</code> instance, session timeout is configured as described in <a href="/session-management.html#SessionManagement-SessionManager-SessionTimeout">Session Management: Session Timeout</a></p>
 </div>
 </div>
 <div class="sect4">
@@ -1241,14 +1242,13 @@ securityManager.rememberMeManager = $rememberMeManager</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="jsp_gsp_tag_library">JSP / GSP Tag Library</h2>
+<h2 id="tag_library">JSP / GSP Tag Library</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Apache Shiro provides a <code>Subject</code>-aware JSP/GSP tag library that allows you to control your JSP, JSTL or GSP page output based on the current Subject&#8217;s state. This is quite useful for personalizing views based on the identity and authorization state of the current user viewing the web page.</p>
 </div>
-<div class="paragraph">
-<p>===Tag Library Configuration</p>
-</div>
+<div class="sect2">
+<h3 id="tag_library_configuration">Tag Library Configuration</h3>
 <div class="paragraph">
 <p>The Tag Library Descriptor (TLD) file is bundled in <code>shiro-web.jar</code> in the <code>META-INF/shiro.tld</code> file. To use any of the tags, add the following line to the top of your JSP page (or wherever you define page directives):</p>
 </div>
@@ -1263,8 +1263,9 @@ securityManager.rememberMeManager = $rememberMeManager</code></pre>
 <div class="paragraph">
 <p>Now we&#8217;ll cover each tag and show how it might be used to render a page.</p>
 </div>
+</div>
 <div class="sect2">
-<h3 id="the_guest_tag">The <code>guest</code> tag</h3>
+<h3 id="web_guesttag">The <code>guest</code> tag</h3>
 <div class="paragraph">
 <p>The <code>guest</code> tag will display its wrapped content only if the current <code>Subject</code> is considered a 'guest'. A guest is any <code>Subject</code> that does not have an identity. That is, we don&#8217;t know who the user is because they have not logged in and they are not remembered (from Remember Me services) from a previous site visit.</p>
 </div>
@@ -1279,13 +1280,13 @@ securityManager.rememberMeManager = $rememberMeManager</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>guest</code> tag is the logical opposite of the <a href="#Web-usertag"><code>user</code></a> tag.</p>
+<p>The <code>guest</code> tag is the logical opposite of the <a href="#web_usertag"><code>user</code></a> tag.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="the_user_tag">The <code>user</code> tag</h3>
+<h3 id="web_usertag">The <code>user</code> tag</h3>
 <div class="paragraph">
-<p>The <code>user</code> tag will display its wrapped content only if the current <code>Subject</code> is considered a 'user'. A 'user' in this context is defined as a <code>Subject</code> with a known identity, either from a successful authentication or from 'RememberMe' services. Note that this tag is semantically different from the <a href="#Web-authenticatedtag">authenticated</a> tag, which is more restrictive than this tag.</p>
+<p>The <code>user</code> tag will display its wrapped content only if the current <code>Subject</code> is considered a 'user'. A 'user' in this context is defined as a <code>Subject</code> with a known identity, either from a successful authentication or from 'RememberMe' services. Note that this tag is semantically different from the <a href="#web_authenticatedtag">authenticated</a> tag, which is more restrictive than this tag.</p>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -1298,16 +1299,16 @@ securityManager.rememberMeManager = $rememberMeManager</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>user</code> tag is the logical opposite of the <a href="#Web-guesttag"><code>guest</code></a> tag.</p>
+<p>The <code>user</code> tag is the logical opposite of the <a href="#web_guesttag"><code>guest</code></a> tag.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="the_authenticated_tag">The <code>authenticated</code> tag</h3>
+<h3 id="web_authenticatedtag">The <code>authenticated</code> tag</h3>
 <div class="paragraph">
 <p>Displays body content only if the current user has successfully authenticated <em>during their current session</em>. It is more restrictive than the 'user' tag. It is logically opposite to the 'notAuthenticated' tag.</p>
 </div>
 <div class="paragraph">
-<p>The <code>authenticated</code> tag will display its wrapped content only if the current <code>Subject</code> has successfully authenticated <em>during their current session</em>. It is a more restrictive tag than the <a href="#Web-usertag">user</a>, which is used to guarantee identity in sensitive workflows.</p>
+<p>The <code>authenticated</code> tag will display its wrapped content only if the current <code>Subject</code> has successfully authenticated <em>during their current session</em>. It is a more restrictive tag than the <a href="#web_usertag">user</a>, which is used to guarantee identity in sensitive workflows.</p>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -1320,11 +1321,11 @@ securityManager.rememberMeManager = $rememberMeManager</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>authenticated</code> tag is the logical opposite of the <a href="#Web-notauthenticatedtag"><code>notAuthenticated</code></a> tag.</p>
+<p>The <code>authenticated</code> tag is the logical opposite of the <a href="#web_notauthenticatedtag"><code>notAuthenticated</code></a> tag.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="the_notauthenticated_tag">The <code>notAuthenticated</code> tag</h3>
+<h3 id="web_notauthenticatedtag">The <code>notAuthenticated</code> tag</h3>
 <div class="paragraph">
 <p>The <code>notAuthenticated</code> tag will display its wrapped content if the current <code>Subject</code> has <strong>NOT</strong> yet successfully authenticated during the current session.</p>
 </div>
@@ -1339,7 +1340,7 @@ securityManager.rememberMeManager = $rememberMeManager</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>notAuthenticated</code> tag is the logical opposite of the <a href="#Web-authenticatedtag"><code>authenticated</code></a> tag.</p>
+<p>The <code>notAuthenticated</code> tag is the logical opposite of the <a href="#web_authenticatedtag"><code>authenticated</code></a> tag.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1422,7 +1423,7 @@ securityManager.rememberMeManager = $rememberMeManager</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="the_hasrole_tag">The <code>hasRole</code> tag</h3>
+<h3 id="web_hasroletag">The <code>hasRole</code> tag</h3>
 <div class="paragraph">
 <p>The <code>hasRole</code> tag will display its wrapped content only if the current <code>Subject</code> is assigned the specified role.</p>
 </div>
@@ -1437,11 +1438,11 @@ securityManager.rememberMeManager = $rememberMeManager</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>hasRole</code> tag is the logical opposite of the <a href="#Web-lacksroletag">lacksRole</a> tag.</p>
+<p>The <code>hasRole</code> tag is the logical opposite of the <a href="#web_lacksroletag">lacksRole</a> tag.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="the_lacksrole_tag">The <code>lacksRole</code> tag</h3>
+<h3 id="web_lacksroletag">The <code>lacksRole</code> tag</h3>
 <div class="paragraph">
 <p>The <code>lacksRole</code> tag will display its wrapped content only if the current <code>Subject</code> <strong>is NOT</strong> assigned the specified role.</p>
 </div>
@@ -1456,7 +1457,7 @@ securityManager.rememberMeManager = $rememberMeManager</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>lacksRole</code> tag is the logical opposite of the <a href="#Web-hasroletag">hasRole</a> tag.</p>
+<p>The <code>lacksRole</code> tag is the logical opposite of the <a href="#web_hasroletag">hasRole</a> tag.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1479,7 +1480,7 @@ securityManager.rememberMeManager = $rememberMeManager</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="the_haspermission_tag">The <code>hasPermission</code> tag</h3>
+<h3 id="web_haspermissiontag">The <code>hasPermission</code> tag</h3>
 <div class="paragraph">
 <p>The <code>hasPermission</code> tag will display its wrapped content only if the current <code>Subject</code> 'has' (implies) the specified permission. That is, the user has the specified ability.</p>
 </div>
@@ -1494,11 +1495,11 @@ securityManager.rememberMeManager = $rememberMeManager</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>hasPermission</code> tag is the logical opposite of the <a href="#Web-lackspermissiontag">lacksPermission</a> tag.</p>
+<p>The <code>hasPermission</code> tag is the logical opposite of the <a href="#web_lackspermissiontag">lacksPermission</a> tag.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="the_lackspermission_tag">The <code>lacksPermission</code> tag</h3>
+<h3 id="web_lackspermissiontag">The <code>lacksPermission</code> tag</h3>
 <div class="paragraph">
 <p>The <code>lacksPermission</code> tag will display its wrapped content only if the current <code>Subject</code> <strong>DOES NOT</strong> have (imply) the specified permission. That is, the user <strong>DOES NOT</strong> have the specified ability.</p>
 </div>
@@ -1513,7 +1514,7 @@ securityManager.rememberMeManager = $rememberMeManager</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>lacksPermission</code> tag is the logical opposite of the <a href="#Web-haspermissiontag">hasPermission</a> tag.</p>
+<p>The <code>lacksPermission</code> tag is the logical opposite of the <a href="#web_haspermissiontag">hasPermission</a> tag.</p>
 </div>
 <h2 id="Lendahandwithdocumentation">Lend a hand with documentation</h2>
 

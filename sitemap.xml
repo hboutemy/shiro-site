@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
+        <loc>https://shiro-jbake.staged.apache.org/authorization.html</loc>
+        <lastmod>2022-01-14</lastmod>
+    </url>
+    <url>
+        <loc>https://shiro-jbake.staged.apache.org/java-authentication-guide.html</loc>
+        <lastmod>2022-01-14</lastmod>
+    </url>
+    <url>
+        <loc>https://shiro-jbake.staged.apache.org/web.html</loc>
+        <lastmod>2022-01-14</lastmod>
+    </url>
+    <url>
+        <loc>https://shiro-jbake.staged.apache.org/reference.html</loc>
+        <lastmod>2022-01-14</lastmod>
+    </url>
+    <url>
+        <loc>https://shiro-jbake.staged.apache.org/session-management.html</loc>
+        <lastmod>2022-01-14</lastmod>
+    </url>
+    <url>
+        <loc>https://shiro-jbake.staged.apache.org/tutorial.html</loc>
+        <lastmod>2022-01-14</lastmod>
+    </url>
+    <url>
         <loc>https://shiro-jbake.staged.apache.org/spring-boot.html</loc>
         <lastmod>2022-01-14</lastmod>
     </url>
@@ -29,20 +53,8 @@
         <lastmod>2022-01-14</lastmod>
     </url>
     <url>
-        <loc>https://shiro-jbake.staged.apache.org/authorization.html</loc>
-        <lastmod>2022-01-14</lastmod>
-    </url>
-    <url>
         <loc>https://shiro-jbake.staged.apache.org/authentication.html</loc>
         <lastmod>2022-01-14</lastmod>
-    </url>
-    <url>
-        <loc>https://shiro-jbake.staged.apache.org/tutorial.html</loc>
-        <lastmod>2022-01-13</lastmod>
-    </url>
-    <url>
-        <loc>https://shiro-jbake.staged.apache.org/session-management.html</loc>
-        <lastmod>2022-01-13</lastmod>
     </url>
     <url>
         <loc>https://shiro-jbake.staged.apache.org/java-authorization-guide.html</loc>
@@ -57,19 +69,11 @@
         <lastmod>2021-12-30</lastmod>
     </url>
     <url>
-        <loc>https://shiro-jbake.staged.apache.org/java-authentication-guide.html</loc>
-        <lastmod>2021-12-30</lastmod>
-    </url>
-    <url>
         <loc>https://shiro-jbake.staged.apache.org/cas.html</loc>
         <lastmod>2021-12-30</lastmod>
     </url>
     <url>
         <loc>https://shiro-jbake.staged.apache.org/webapp-tutorial.html</loc>
-        <lastmod>2021-11-20</lastmod>
-    </url>
-    <url>
-        <loc>https://shiro-jbake.staged.apache.org/web.html</loc>
         <lastmod>2021-11-20</lastmod>
     </url>
     <url>
@@ -110,10 +114,6 @@
     </url>
     <url>
         <loc>https://shiro-jbake.staged.apache.org/roadmap.html</loc>
-        <lastmod>2021-11-20</lastmod>
-    </url>
-    <url>
-        <loc>https://shiro-jbake.staged.apache.org/reference.html</loc>
         <lastmod>2021-11-20</lastmod>
     </url>
     <url>

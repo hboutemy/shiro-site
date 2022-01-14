@@ -31,11 +31,11 @@
     <meta property="og:type" content="article"/>
       <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@ApacheShiro" />
-    <meta property="article:modification_time" content="2021-12-30"/>
+    <meta property="article:modification_time" content="2022-01-14"/>
     <meta property="article:tag" content='documentation'/>
     <meta property="article:tag" content='authentication'/>
     <meta property="og:locale" content="en_US" />
-    <meta property="og:url" content='https://shiro.apache.org/java-authentication-guide.html'/>
+    <meta property="og:url" content='https://shiro-jbake.staged.apache.org/java-authentication-guide.html'/>
     <meta property="og:image" content='img/shiro-featured-image.png'/>
     <meta property="og:image:width" content='1200'/>
     <meta property="og:image:height" content='628'/>
@@ -270,7 +270,7 @@ In Shiro, it does not matter how you acquire them – it is protocol agnostic.</
 <div class="paragraph">
 <p>In this example, we have decided that we want the application to remember users when they return.
 So once the token is created, we use Shiro&#8217;s built-in "Remember-me" feature by setting it to true on the token.
-This is done using the token&#8217;s <a href="/static/current/apidocs/org/apache/shiro/authc/UsernamePasswordToken.html#setRememberMe-boolean-"><code>setRememberMe()</code></a> method</p>
+This is done using the token&#8217;s <a href="/static/current/apidocs/org/apache/shiro/authc/UsernamePasswordToken.html#setRememberMe(boolean)"><code>setRememberMe()</code></a> method</p>
 </div>
 </div>
 <div class="sect2">
@@ -300,13 +300,13 @@ currentUser.login(token);</code></pre>
 </div>
 <div class="paragraph">
 <p>To acquire the subject, we use the <a href="/static/current/apidocs/org/apache/shiro/SecurityUtils.html">SecurityUtils</a> class which is also a core part of Shiro&#8217;s API.
-It will acquire the currently executing user via the <a href="/static/current/apidocs/org/apache/shiro/SecurityUtils.html#getSubject--"><code>getsubject()</code></a> method call.
+It will acquire the currently executing user via the <a href="/static/current/apidocs/org/apache/shiro/SecurityUtils.html#getSubject()"><code>getsubject()</code></a> method call.
 And we get back a subject instance that is representing who the current user is who is interacting with the system.
 At this point in the example, the subject currentUser is anonymous.
 There is no identity associated with them.</p>
 </div>
 <div class="paragraph">
-<p>Now with the user representation in hand, we authenticate them by just calling the <a href="/static/current/apidocs/org/apache/shiro/subject/Subject.html#login-org.apache.shiro.authc.AuthenticationToken-"><code>login()</code></a>) method and submit the token we just constructed a second ago.</p>
+<p>Now with the user representation in hand, we authenticate them by just calling the <a href="/static/current/apidocs/org/apache/shiro/subject/Subject.html#login(org.apache.shiro.authc.AuthenticationToken)"><code>login()</code></a>) method and submit the token we just constructed a second ago.</p>
 </div>
 </div>
 <div class="sect2">
@@ -365,7 +365,7 @@ This is where Shiro&#8217;s rich exception hierarchy comes into play.</p>
 <p>As shown in the example above, Shiro supports the notion of "remember me" in addition to the normal login process.</p>
 </div>
 <div class="paragraph">
-<p>In Shiro, the Subject object supports two methods : <a href="/static/current/apidocs/org/apache/shiro/subject/Subject.html#isRemembered--"><code>isRemembered()</code></a> and <a href="/static/current/apidocs/org/apache/shiro/subject/Subject.html#isAuthenticated--"><code>isAuthenticated()</code></a>.</p>
+<p>In Shiro, the Subject object supports two methods : <a href="/static/current/apidocs/org/apache/shiro/subject/Subject.html#isRemembered()"><code>isRemembered()</code></a> and <a href="/static/current/apidocs/org/apache/shiro/subject/Subject.html#isAuthenticated()"><code>isAuthenticated()</code></a>.</p>
 </div>
 <div class="paragraph">
 <p>A "remembered" subject has an identity (it is not anonymous) and their identifying attributes,referred to as principals, are remembered from a successful authentication during a previous session.</p>
