@@ -31,10 +31,10 @@
     <meta property="og:type" content="article"/>
       <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@ApacheShiro" />
-    <meta property="article:modification_time" content="2022-01-09"/>
+    <meta property="article:modification_time" content="2022-01-14"/>
     <meta property="article:tag" content='documentation'/>
     <meta property="og:locale" content="en_US" />
-    <meta property="og:url" content='https://shiro.apache.org/authorization.html'/>
+    <meta property="og:url" content='https://shiro-jbake.staged.apache.org/authorization.html'/>
     <meta property="og:image" content='img/shiro-featured-image.png'/>
     <meta property="og:image:width" content='1200'/>
     <meta property="og:image:height" content='628'/>
@@ -407,7 +407,7 @@ So your realm is what will tell Shiro whether or not roles or permissions exist.
 <p>If you want to simply check to see if the current <code>Subject</code> has a role or not, you can call the variant <code>hasRole*</code> methods on the <code>Subject</code> instance.</p>
 </div>
 <div class="paragraph">
-<p>For example, to see if a <code>Subject</code> has a particular (single) role, you can call the <code>subject.</code> <a href="static/current/apidocs/org/apache/shiro/subject/Subject.html#hasRole-java.lang.String-"><code>hasRole(roleName)</code></a> method, and react accordingly:</p>
+<p>For example, to see if a <code>Subject</code> has a particular (single) role, you can call the <code>subject.</code> <a href="static/current/apidocs/org/apache/shiro/subject/Subject.html#hasRole(java.lang.String)"><code>hasRole(roleName)</code></a> method, and react accordingly:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -436,15 +436,15 @@ if (currentUser.hasRole("administrator")) {
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="static/current/apidocs/org/apache/shiro/subject/Subject.html#hasRolejava.lang.String-"><code>hasRole(String roleName)</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="static/current/apidocs/org/apache/shiro/subject/Subject.html#hasRole(java.lang.String)"><code>hasRole(String roleName)</code></a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Returns <code>true</code> if the <code>Subject</code> is assigned the specified role, <code>false</code> otherwise.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="static/current/apidocs/org/apache/shiro/subject/Subject.html#hasRoles-java.util.List-"><code>hasRoles(List&lt;String&gt; roleNames)</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="static/current/apidocs/org/apache/shiro/subject/Subject.html#hasRoles(java.util.List)"><code>hasRoles(List&lt;String&gt; roleNames)</code></a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Returns a array of <code>hasRole</code> results corresponding to the indices in the method argument. Useful as a performance enhancement if many role checks need to be performed (e.g. when customizing a complex view)</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="static/current/apidocs/org/apache/shiro/subject/Subject.html#hasAllRoles-java.util.Collection-"><code>hasAllRoles(Collection&lt;String&gt; roleNames)</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="static/current/apidocs/org/apache/shiro/subject/Subject.html#hasAllRoles(java.util.Collection)"><code>hasAllRoles(Collection&lt;String&gt; roleNames)</code></a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Returns <code>true</code> if the <code>Subject</code> is assigned <em>all</em> of the specified roles, <code>false</code> otherwise.</p></td>
 </tr>
 </tbody>
@@ -487,15 +487,15 @@ openBankAccount();</code></pre>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="static/current/apidocs/org/apache/shiro/subject/Subject.html#checkRole-java.lang.String-"><code>checkRole(String roleName)</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="static/current/apidocs/org/apache/shiro/subject/Subject.html#checkRole(java.lang.String)"><code>checkRole(String roleName)</code></a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Returns quietly if the <code>Subject</code> is assigned the specified role or throws an <code>AuthorizationException</code> if not.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="static/current/apidocs/org/apache/shiro/subject/Subject.html#checkRoles-java.util.Collection-"><code>checkRoles(Collection&lt;String&gt; roleNames)</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="static/current/apidocs/org/apache/shiro/subject/Subject.html#checkRoles(java.util.Collection)"><code>checkRoles(Collection&lt;String&gt; roleNames)</code></a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Returns quietly if the <code>Subject</code> is assigned <em>all</em> of the specified role or throws an <code>AuthorizationException</code> if not.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="static/current/apidocs/org/apache/shiro/subject/Subject.html#checkRoles-java.lang.String&#8230;&#8203;-"><code>checkRoles(String&#8230;&#8203; roleNames)</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="static/current/apidocs/org/apache/shiro/subject/Subject.html#checkRoles(java.lang.String&#8230;&#8203;)"><code>checkRoles(String&#8230;&#8203; roleIdentifiers)</code></a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Same effect as the <code>checkRoles</code> method above, but allows Java 5 var-args style arguments.</p></td>
 </tr>
 </tbody>
@@ -549,7 +549,7 @@ if (currentUser.isPermitted(printPermission)) {
 <p>You want to guarantee permissions are represented and used correctly</p>
 </li>
 <li>
-<p>You want explicit control of how permission resolution logic (called permission implication logic, based on the Permission interface&#8217;s <a href="static/current/apidocs/org/apache/shiro/authz/Permission.html#implies-org.apache.shiro.authz.Permission-"><code>implies</code></a> method) executes.</p>
+<p>You want explicit control of how permission resolution logic (called permission implication logic, based on the Permission interface&#8217;s <a href="static/current/apidocs/org/apache/shiro/authz/Permission.html#implies(org.apache.shiro.authz.Permission)"><code>implies</code></a> method) executes.</p>
 </li>
 <li>
 <p>You want to guarantee Permissions reflect application resources accurately (for example, maybe Permission classes can be auto-generated during a project&#8217;s build based on a project&#8217;s domain model).</p>
@@ -572,15 +572,15 @@ if (currentUser.isPermitted(printPermission)) {
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="static/current/apidocs/org/apache/shiro/subject/Subject.html#isPermitted-org.apache.shiro.authz.Permission-"><code>isPermitted(Permission p)</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="static/current/apidocs/org/apache/shiro/subject/Subject.html#isPermitted(org.apache.shiro.authz.Permission)"><code>isPermitted(Permission p)</code></a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Returns <code>true</code> if the <code>Subject</code> is permitted to perform an action or access a resource summarized by the specified <code>Permission</code> instance, <code>false</code> otherwise.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="static/current/apidocs/org/apache/shiro/subject/Subject.html#isPermitted-java.util.List-"><code>isPermitted(List&lt;Permission&gt; perms)</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="static/current/apidocs/org/apache/shiro/subject/Subject.html#isPermitted(java.util.List)"><code>isPermitted(List&lt;Permission&gt; perms)</code></a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Returns an array of <code>isPermitted</code> results corresponding to the indices in the method argument. Useful as a performance enhancement if many permission checks need to be performed (e.g. when customizing a complex view)</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="static/current/apidocs/org/apache/shiro/subject/Subject.html#isPermittedAll-java.util.Collection-"><code>isPermittedAll(Collection&lt;Permission&gt; perms)</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="static/current/apidocs/org/apache/shiro/subject/Subject.html#isPermittedAll(java.util.Collection)"><code>isPermittedAll(Collection&lt;Permission&gt; perms)</code></a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Returns <code>true</code> if the <code>Subject</code> is permitted <em>all</em> of the specified permissions, <code>false</code> otherwise.</p></td>
 </tr>
 </tbody>
@@ -652,15 +652,15 @@ if (currentUser.isPermitted(p) {
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="static/current/apidocs/org/apache/shiro/subject/Subject.html#isPermitted-java.lang.String-"><code>isPermitted(String perm)</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="static/current/apidocs/org/apache/shiro/subject/Subject.html#isPermitted(java.lang.String)"><code>isPermitted(String perm)</code></a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Returns <code>true</code> if the <code>Subject</code> is permitted to perform an action or access a resource summarized by the specified <code>String</code> permission, <code>false</code> otherwise.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="static/current/apidocs/org/apache/shiro/subject/Subject.html#isPermitted-java.util.List-"><code>isPermitted(String&#8230;&#8203; perms)</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="static/current/apidocs/org/apache/shiro/subject/Subject.html#isPermitted(java.util.List)"><code>isPermitted(String&#8230;&#8203; perms)</code></a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Returns an array of <code>isPermitted</code> results corresponding to the indices in the method argument. Useful as a performance enhancement if many <code>String</code> permission checks need to be performed (e.g. when customizing a complex view)</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="static/current/apidocs/org/apache/shiro/subject/Subject.html#isPermittedAll-java.lang.String&#8230;&#8203;-"><code>isPermittedAll(String&#8230;&#8203; perms)</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="static/current/apidocs/org/apache/shiro/subject/Subject.html#isPermittedAll(java.lang.String&#8230;&#8203;)"><code>isPermittedAll(String&#8230;&#8203; perms)</code></a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Returns <code>true</code> if the <code>Subject</code> is permitted <em>all</em> of the specified <code>String</code> permissions, <code>false</code> otherwise.</p></td>
 </tr>
 </tbody>
@@ -717,19 +717,19 @@ openBankAccount();</code></pre>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="static/current/apidocs/org/apache/shiro/subject/Subject.html#checkPermission-org.apache.shiro.authz.Permission-"><code>checkPermission(Permission p)</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="static/current/apidocs/org/apache/shiro/subject/Subject.html#checkPermission(org.apache.shiro.authz.Permission)"><code>checkPermission(Permission p)</code></a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Returns quietly if the <code>Subject</code> is permitted to perform an action or access a resource summarized by the specified <code>Permission</code> instance, or throws an <code>AuthorizationException</code> if not.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="static/current/apidocs/org/apache/shiro/subject/Subject.html#checkPermission-java.lang.String-"><code>checkPermission(String perm)</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="static/current/apidocs/org/apache/shiro/subject/Subject.html#checkPermission(java.lang.String)"><code>checkPermission(String perm)</code></a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Returns quietly if the <code>Subject</code> is is permitted to perform an action or access a resource summarized by the specified <code>String</code> permission, or throws an <code>AuthorizationException</code> if not.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="static/current/apidocs/org/apache/shiro/subject/Subject.html#checkPermissions-java.util.Collection-"><code>checkPermissions(Collection&lt;Permission&gt; perms)</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="static/current/apidocs/org/apache/shiro/subject/Subject.html#checkPermissions(java.util.Collection)"><code>checkPermissions(Collection&lt;Permission&gt; perms)</code></a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Returns quietly if the <code>Subject</code> is permitted <em>all</em> the specified permissions, or throws an <code>AuthorizationException</code> if not.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="static/current/apidocs/org/apache/shiro/subject/Subject.html#checkPermissions-java.lang.String&#8230;&#8203;-"><code>checkPermissions(String&#8230;&#8203; perms)</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="static/current/apidocs/org/apache/shiro/subject/Subject.html#checkPermissions(java.lang.String&#8230;&#8203;)"><code>checkPermissions(String&#8230;&#8203; perms)</code></a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Same effect as the <code>checkPermissions</code> method above, but using <code>String</code>-based permissions.</p></td>
 </tr>
 </tbody>

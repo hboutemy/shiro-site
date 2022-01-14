@@ -31,7 +31,7 @@
     <meta property="og:type" content="article"/>
       <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@ApacheShiro" />
-    <meta property="article:modification_time" content="2021-11-20"/>
+    <meta property="article:modification_time" content="2022-01-14"/>
     <meta property="article:tag" content='documentation'/>
     <meta property="article:tag" content='support'/>
     <meta property="article:tag" content='community'/>
@@ -40,7 +40,7 @@
     <meta property="article:tag" content='issues'/>
     <meta property="article:tag" content='bugs'/>
     <meta property="og:locale" content="en_US" />
-    <meta property="og:url" content='https://shiro.apache.org/realm.html'/>
+    <meta property="og:url" content='https://shiro-jbake.staged.apache.org/realm.html'/>
     <meta property="og:image" content='img/shiro-featured-image.png'/>
     <meta property="og:image:width" content='1200'/>
     <meta property="og:image:height" content='628'/>
@@ -184,7 +184,7 @@
 <li><a href="#Realm-RealmAuthentication">Realm Authentication</a>
 <ul class="sectlevel2">
 <li><a href="#Realm-Supporting">Supporting <code>AuthenticationTokens</code></a></li>
-<li><a href="#Realm-Handlingsupported">Handling supported <code>AuthenticationTokens</code></a></li>
+<li><a href="#Realm-Handling-supported-AuthenticationTokens">Handling supported <code>AuthenticationTokens</code></a></li>
 <li><a href="#Realm-CredentialsMatching">Credentials Matching</a></li>
 <li><a href="#Realm-DisablingAuthentication">Disabling Authentication</a></li>
 </ul>
@@ -252,7 +252,7 @@ securityManager.realms = $fooRealm, $barRealm, $bazRealm</code></pre>
 </div>
 <div class="paragraph">
 <p>Explicit assignment is deterministic - you control exactly which realms are used as well as <em>the order</em> that they will be used for authentication and authorization.
-Realm ordering effects are described in detail in the Authentication chapter&#8217;s <a href="authentication.html#">[#</a>]#Authentication-sequence[Authentication Sequence] section.</p>
+Realm ordering effects are described in detail in the Authentication chapter&#8217;s <a href="authentication.html#Authentication-AuthenticationSequence">Authentication Sequence</a> section.</p>
 </div>
 </div>
 <div class="sect2">
@@ -319,7 +319,7 @@ If you change their definition order, you will change how the main `Authenticato
 <div class="sect2">
 <h3 id="Realm-Supporting">Supporting <code>AuthenticationTokens</code></h3>
 <div class="paragraph">
-<p>As mentioned in the <a href="/authentication.html#">[<mark></a>]#Authentication-sequence[authentication sequence], just before a <code>Realm</code> is consulted to perform an authentication attempt, its <a href="static/current/apidocs/org/apache/shiro/realm/Realm.html</mark>">[#</a>]#supports-org.apache.shiro.authc.AuthenticationToken-[<code>supports</code>] method is called.
+<p>As mentioned in the <a href="/authentication.html#Authentication-AuthenticationSequence">authentication sequence</a>, just before a <code>Realm</code> is consulted to perform an authentication attempt, its <a href="static/current/apidocs/org/apache/shiro/realm/Realm.html#supports(org.apache.shiro.authc.AuthenticationToken)"><code>supports</code></a> method is called.
 If the return value is <code>true</code>, only then will its <code>getAuthenticationInfo(token)</code> method be invoked.</p>
 </div>
 <div class="paragraph">
@@ -328,7 +328,7 @@ For example, a Realm that processes biometric data may not understand <code>User
 </div>
 </div>
 <div class="sect2">
-<h3 id="Realm-Handlingsupported">Handling supported <code>AuthenticationTokens</code></h3>
+<h3 id="Realm-Handling-supported-AuthenticationTokens">Handling supported <code>AuthenticationTokens</code></h3>
 <div class="paragraph">
 <p>If a <code>Realm</code> <code>supports</code> a submitted <code>AuthenticationToken</code>, the <code>Authenticator</code> will call the Realm&#8217;s <a href="static/current/apidocs/org/apache/shiro/realm/Realm.html#getAuthenticationInfo(org.apache.shiro.authc.AuthenticationToken)">getAuthenticationInfo(token)</a> method.
 This effectively represents an authentication attempt with the <code>Realm&#8217;s</code> backing data source.
@@ -613,7 +613,7 @@ Deny access by returning false if no none of the Realm grants Subject given Role
 </li>
 <li>
 <p>For aggregated Permissions from a. and b. the implies() method is called to check if any of these permission are implied the checked permission.
-See <a href="/permissions.html#Permissions-WildcardPermissions">WildcardPermission</a></p>
+See <a href="/permissions.html#wildcard_permissions">WildcardPermission</a></p>
 </li>
 </ol>
 </div>
