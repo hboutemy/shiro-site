@@ -6,8 +6,8 @@
     <atom:link href="https://shiro-jbake.staged.apache.org/feed.xml" rel="self" type="application/rss+xml" />
     <description>JBake Bootstrap Template</description>
     <language>en-gb</language>
-    <pubDate>Do., 13 Jan. 2022 23:13:36 +0100</pubDate>
-    <lastBuildDate>Do., 13 Jan. 2022 23:13:36 +0100</lastBuildDate>
+    <pubDate>Fr., 14 Jan. 2022 08:05:15 +0100</pubDate>
+    <lastBuildDate>Fr., 14 Jan. 2022 08:05:15 +0100</lastBuildDate>
 
     <item>
       <title>Apache Shiro v1.8.0 released</title>
@@ -706,7 +706,7 @@ documentation.&lt;/a&gt;&lt;/p&gt;
 	</description>
     </item>
     <item>
-      <title>Apache Shiro 1.2.2 Released</title>
+      <title>Apache Shiro 1.2.1 Released</title>
       <link>https://shiro-jbake.staged.apache.org/blog/2012/07/29/apache-shiro-121-released.html</link>
       <pubDate>So., 29 Juli 2012 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2012/07/29/apache-shiro-121-released.html</guid>
