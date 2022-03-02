@@ -99,6 +99,8 @@ Google Analytics with Matomo for new Javadocs
 
 * [https://issues.apache.org/jira/browse/SHIRO-841[SHIRO-841]] -
 NullPointerException from SessionsSecurityManager.start()
+* [https://issues.apache.org/jira/browse/SHIRO-867[SHIRO-867]] - Skip Deployment of integration-test and samples artifacts
+
 
 === Dependency upgrade
 
